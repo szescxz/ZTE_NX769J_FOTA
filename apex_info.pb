@@ -8,7 +8,7 @@
 *
 com.android.appsearch¹•¢ ñ³ñ(¹•¢
 $
-com.android.art¹•¢ Áğ¸(¹•¢
+com.android.art¹•¢ ¾ğ¸(¹•¢
 .
 com.android.cellbroadcast¹•¢ ¡õ±(¹•¢
 4
