@@ -1,6 +1,6 @@
 
 %
-com.android.adbdêπï¢ €ßé(êπï¢
+com.android.adbdêπï¢ ‚ßé(êπï¢
 +
 com.android.adservicesêπï¢ ôæõ(êπï¢
 
@@ -8,7 +8,7 @@
 *
 com.android.appsearchêπï¢ Ò≥Ò(êπï¢
 $
-com.android.artêπï¢ ¡–∏(êπï¢
+com.android.artêπï¢ ¡∏(êπï¢
 .
 com.android.cellbroadcastêπï¢ ¢’±(êπï¢
 4
@@ -50,7 +50,7 @@ $
  
 com.android.sdkextêπï¢(êπï¢
 *
-com.android.tetheringêπï¢ –ò (êπï¢
+com.android.tetheringêπï¢ “ò (êπï¢
  
 com.android.tzdataêπï¢(êπï¢
 $
