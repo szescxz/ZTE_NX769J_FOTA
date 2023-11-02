@@ -28,7 +28,7 @@ $
 &
 com.android.mediaêπï¢ ¯Ó(êπï¢
 .
-com.android.media.swcodecêπï¢ ¢¿Ô(êπï¢
+com.android.media.swcodecêπï¢ ¢‡Ô(êπï¢
 .
 com.android.mediaproviderêπï¢ ó∂ñ(êπï¢
 /
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifiêπï¢ ã«Ÿ(êπï¢
+com.android.wifiêπï¢ à«Ÿ(êπï¢
