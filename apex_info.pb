@@ -8,7 +8,7 @@
 *
 com.android.appsearchêπï¢ Ò≥Ò(êπï¢
 $
-com.android.artêπï¢ ¡∏(êπï¢
+com.android.artêπï¢ æ∏(êπï¢
 .
 com.android.cellbroadcastêπï¢ ¢’±(êπï¢
 4
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifiêπï¢ à«Ÿ(êπï¢
+com.android.wifiêπï¢ ä«Ÿ(êπï¢
