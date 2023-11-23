@@ -10,7 +10,7 @@
 
 com.android.runtime(
 $
-com.android.uwbêπï¢ ©¬Ù(êπï¢
+com.android.uwbêπï¢ ü√Ù(êπï¢
 
 com.android.virt(
 
