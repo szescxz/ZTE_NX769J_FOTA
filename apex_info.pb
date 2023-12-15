@@ -40,7 +40,7 @@ $
 +
 com.android.permission¹•¢ ùÔ”(¹•¢
 '
-com.android.resolv¹•¢ »ó‹(¹•¢
+com.android.resolv¹•¢ ¶Ó‹(¹•¢
 
 com.android.rkpd(
 
