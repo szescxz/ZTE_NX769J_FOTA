@@ -8,7 +8,7 @@
 *
 com.android.appsearch¹•¢ Ñ³ñ(¹•¢
 $
-com.android.art¹•¢ Àğ¸(¹•¢
+com.android.art¹•¢ Áğ¸(¹•¢
 .
 com.android.cellbroadcast¹•¢ úÔ±(¹•¢
 4
@@ -30,7 +30,7 @@ $
 .
 com.android.media.swcodec¹•¢ Ÿàï(¹•¢
 .
-com.android.mediaprovider¹•¢ °Õ–(¹•¢
+com.android.mediaprovider¹•¢ ²Õ–(¹•¢
 /
 com.android.neuralnetworks¹•¢ ıŞ±(¹•¢
 8
@@ -38,7 +38,7 @@ $
 #
 com.android.os.statsd¹•¢(¹•¢
 +
-com.android.permission¹•¢ ùÔ”(¹•¢
+com.android.permission¹•¢ ûÔ”(¹•¢
 '
 com.android.resolv¹•¢ »ó‹(¹•¢
 
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifi¹•¢ ÂæÙ(¹•¢
+com.android.wifi¹•¢ ÈæÙ(¹•¢
