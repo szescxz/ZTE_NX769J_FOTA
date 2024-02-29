@@ -1,6 +1,6 @@
 
 %
-com.android.adbdêπï¢ ±ßé(êπï¢
+com.android.adbdêπï¢ ≤ßé(êπï¢
 +
 com.android.adservicesêπï¢ Òæõ(êπï¢
 
@@ -28,11 +28,11 @@ $
 &
 com.android.mediaêπï¢ ıÓ(êπï¢
 .
-com.android.media.swcodecêπï¢ °‡Ô(êπï¢
+com.android.media.swcodecêπï¢ £‡Ô(êπï¢
 .
 com.android.mediaproviderêπï¢ ≤’ñ(êπï¢
 /
-com.android.neuralnetworksêπï¢ ˝ﬁ±(êπï¢
+com.android.neuralnetworksêπï¢ ˚ﬁ±(êπï¢
 8
 #com.android.ondevicepersonalizationêπï¢ ÃØó(êπï¢
 #
@@ -50,11 +50,11 @@ $
  
 com.android.sdkextêπï¢(êπï¢
 *
-com.android.tetheringêπï¢ ‘ò (êπï¢
+com.android.tetheringêπï¢ —ò (êπï¢
  
 com.android.tzdataêπï¢(êπï¢
 $
-com.android.uwbêπï¢ Õ–ı(êπï¢
+com.android.uwbêπï¢ œ–ı(êπï¢
 
 com.android.virt(
 
