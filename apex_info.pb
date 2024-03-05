@@ -10,56 +10,56 @@
 
 com.android.runtime(
 $
-com.android.uwb¹•¢ ŸÃô(¹•¢
+com.android.uwb¹•¢  Ãô(¹•¢
 
 com.android.virt(
 
 com.android.vndk.v34(
 %
-com.android.adbdæğÁ¢ € ñ(‚ÏÇ¢
+com.android.adbd‚ÏÇ¢ € ñ(æğÁ¢
 +
-com.android.adservicesäğÁ¢ €à€(êæÇ¢
+com.android.adservicesêæÇ¢ € ·(äğÁ¢
 *
-com.android.appsearchäğÁ¢ €àë(èÖÇ¢
+com.android.appsearchèÖÇ¢ €€í(äğÁ¢
 $
-com.android.artæğÁ¢ €€ë(öæÇ¢
+com.android.artöæÇ¢ €àí(æğÁ¢
 .
-com.android.cellbroadcastäğÁ¢ €Àï(ĞŞÇ¢
+com.android.cellbroadcastĞŞÇ¢ €ÀÜ(äğÁ¢
 4
- com.android.configinfrastructureäğÁ¢ €€(¾ñÁ¢
+ com.android.configinfrastructure¾ñÁ¢ €€(äğÁ¢
 )
-com.android.conscryptæğÁ¢ € {(ÀñÁ¢
+com.android.conscryptÀñÁ¢ € {(æğÁ¢
 ,
-com.android.extservicesäğÁ¢ €àÆ(¾ñÁ¢
+com.android.extservices¾ñÁ¢ €àÆ(äğÁ¢
 .
-com.android.healthfitnessäğÁ¢ € »(¾ñÁ¢
+com.android.healthfitness¾ñÁ¢ € »(äğÁ¢
 %
-com.android.ipsecäğÁ¢ €à:(ĞŞÇ¢
+com.android.ipsecĞŞÇ¢ € :(äğÁ¢
 .
-com.android.media.swcodecæğÁ¢ € Ø(œÈ¢
+com.android.media.swcodecœÈ¢ €€Ø(æğÁ¢
 &
-com.android.mediaæğÁ¢ € ›(œÈ¢
+com.android.mediaœÈ¢ €À˜(æğÁ¢
 .
-com.android.mediaprovideräğÁ¢ € ÷(–‡È¢
+com.android.mediaprovider–‡È¢ €€•(äğÁ¢
 /
-com.android.neuralnetworksäğÁ¢ €à£(¾ñÁ¢
+com.android.neuralnetworks¾ñÁ¢ €à£(äğÁ¢
 7
-#com.android.ondevicepersonalizationäğÁ¢ €À^(ˆˆÂ¢
+#com.android.ondevicepersonalizationˆˆÂ¢ €À^(äğÁ¢
 *
-com.android.os.statsdäğÁ¢ €€Ì(€ÏÇ¢
+com.android.os.statsd€ÏÇ¢ €ÀË(äğÁ¢
 +
-com.android.permissionäğÁ¢ €€§	(ªîÇ¢
+com.android.permissionªîÇ¢ €àŸ	(äğÁ¢
 '
-com.android.resolväğÁ¢ € ˆ(€ÏÇ¢
+com.android.resolv€ÏÇ¢ € †(äğÁ¢
 *
-com.android.schedulingäğÁ¢ €€(¾ñÁ¢
+com.android.scheduling¾ñÁ¢ €€(äğÁ¢
 &
-com.android.sdkextäğÁ¢ €à7(ŠÏÇ¢
+com.android.sdkextŠÏÇ¢ €à6(äğÁ¢
 *
-com.android.tetheringäğÁ¢ €€±(†×Ç¢
+com.android.tethering†×Ç¢ €€®(äğÁ¢
  
-com.android.tzdataäğÁ¢(ˆˆÂ¢
+com.android.tzdataˆˆÂ¢(äğÁ¢
 %
-com.android.wifiäğÁ¢ € ˜(òÖÇ¢
+com.android.wifiòÖÇ¢ €à”(äğÁ¢
 .
- com.google.mainline.primary.libsèú»¢(¬²É¢
+ com.google.mainline.primary.libs¬²É¢(èú»¢
