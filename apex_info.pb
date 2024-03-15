@@ -2,7 +2,7 @@
 %
 com.android.adbdêπï¢ ≤ßé(êπï¢
 +
-com.android.adservicesêπï¢ Òæõ(êπï¢
+com.android.adservicesêπï¢ Ùæõ(êπï¢
 
 com.android.apex.cts.shim(
 *
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifiêπï¢ ≈ÊŸ(êπï¢
+com.android.wifiêπï¢ ∆ÊŸ(êπï¢
