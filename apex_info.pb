@@ -8,7 +8,7 @@
 *
 com.android.appsearch¹•¢ Ñ³ñ(¹•¢
 $
-com.android.art¹•¢ ºğ¸(¹•¢
+com.android.art¹•¢ ¿¹(¹•¢
 .
 com.android.cellbroadcast¹•¢ úÔ±(¹•¢
 4
@@ -26,19 +26,19 @@ $
 %
 com.android.ipsec¹•¢ Ó•9(¹•¢
 &
-com.android.media¹•¢ õğî(¹•¢
+com.android.media¹•¢ ğğî(¹•¢
 .
-com.android.media.swcodec¹•¢ £àï(¹•¢
+com.android.media.swcodec¹•¢ ¡àï(¹•¢
 .
 com.android.mediaprovider¹•¢ ²Õ–(¹•¢
 /
-com.android.neuralnetworks¹•¢ ûŞ±(¹•¢
+com.android.neuralnetworks¹•¢ ùŞ±(¹•¢
 8
 #com.android.ondevicepersonalization¹•¢ Ì¯—(¹•¢
 #
 com.android.os.statsd¹•¢(¹•¢
 +
-com.android.permission¹•¢ ûÔ”(¹•¢
+com.android.permission¹•¢ ıô”(¹•¢
 '
 com.android.resolv¹•¢ »ó‹(¹•¢
 
@@ -50,7 +50,7 @@ $
  
 com.android.sdkext¹•¢(¹•¢
 *
-com.android.tethering¹•¢ Ñ˜Ê(¹•¢
+com.android.tethering¹•¢ ÏøÊ(¹•¢
  
 com.android.tzdata¹•¢(¹•¢
 $
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifi¹•¢ ÆæÙ(¹•¢
+com.android.wifi¹•¢ Ã¦Û(¹•¢
