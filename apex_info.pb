@@ -16,50 +16,50 @@ $
 
 com.android.vndk.v34(
 %
-com.android.adbd‚ÏÇ¢ € ñ(æğÁ¢
+com.android.adbd‚ÏÇ¢ € ñ(‚ÏÇ¢
 +
-com.android.adservicesêæÇ¢ € ·(äğÁ¢
+com.android.adservicesêæÇ¢ € ·(êæÇ¢
 *
-com.android.appsearchèÖÇ¢ €€í(äğÁ¢
+com.android.appsearchèÖÇ¢ €€í(èÖÇ¢
 $
-com.android.artöæÇ¢ €àí(æğÁ¢
+com.android.artöæÇ¢ €àí(öæÇ¢
 .
-com.android.cellbroadcastĞŞÇ¢ €ÀÜ(äğÁ¢
+com.android.cellbroadcastĞŞÇ¢ €ÀÜ(ĞŞÇ¢
 4
- com.android.configinfrastructure¾ñÁ¢ €€(äğÁ¢
+ com.android.configinfrastructure¾ñÁ¢ €€(¾ñÁ¢
 )
-com.android.conscryptÀñÁ¢ € {(æğÁ¢
+com.android.conscryptÀñÁ¢ € {(ÀñÁ¢
 ,
-com.android.extservices¾ñÁ¢ €àÆ(äğÁ¢
+com.android.extservices¾ñÁ¢ €àÆ(¾ñÁ¢
 .
-com.android.healthfitness¾ñÁ¢ € »(äğÁ¢
+com.android.healthfitness¾ñÁ¢ € »(¾ñÁ¢
 %
-com.android.ipsecĞŞÇ¢ € :(äğÁ¢
+com.android.ipsecĞŞÇ¢ € :(ĞŞÇ¢
 .
-com.android.media.swcodecœÈ¢ €€Ø(æğÁ¢
+com.android.media.swcodecœÈ¢ €€Ø(œÈ¢
 &
-com.android.mediaœÈ¢ €À˜(æğÁ¢
+com.android.mediaœÈ¢ €À˜(œÈ¢
 .
-com.android.mediaprovider–‡È¢ €€•(äğÁ¢
+com.android.mediaprovider–‡È¢ €€•(–‡È¢
 /
-com.android.neuralnetworks¾ñÁ¢ €à£(äğÁ¢
+com.android.neuralnetworks¾ñÁ¢ €à£(¾ñÁ¢
 7
-#com.android.ondevicepersonalizationˆˆÂ¢ €À^(äğÁ¢
+#com.android.ondevicepersonalizationˆˆÂ¢ €À^(ˆˆÂ¢
 *
-com.android.os.statsd€ÏÇ¢ €ÀË(äğÁ¢
+com.android.os.statsd€ÏÇ¢ €ÀË(€ÏÇ¢
 +
-com.android.permissionªîÇ¢ €àŸ	(äğÁ¢
+com.android.permissionªîÇ¢ €àŸ	(ªîÇ¢
 '
-com.android.resolv€ÏÇ¢ € †(äğÁ¢
+com.android.resolv€ÏÇ¢ € †(€ÏÇ¢
 *
-com.android.scheduling¾ñÁ¢ €€(äğÁ¢
+com.android.scheduling¾ñÁ¢ €€(¾ñÁ¢
 &
-com.android.sdkextŠÏÇ¢ €à6(äğÁ¢
+com.android.sdkextŠÏÇ¢ €à6(ŠÏÇ¢
 *
-com.android.tethering†×Ç¢ €€®(äğÁ¢
+com.android.tethering†×Ç¢ €€®(†×Ç¢
  
-com.android.tzdataˆˆÂ¢(äğÁ¢
+com.android.tzdataˆˆÂ¢(ˆˆÂ¢
 %
-com.android.wifiòÖÇ¢ €à”(äğÁ¢
+com.android.wifiòÖÇ¢ €à”(òÖÇ¢
 .
- com.google.mainline.primary.libs¬²É¢(èú»¢
+ com.google.mainline.primary.libs¬²É¢(¬²É¢
