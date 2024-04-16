@@ -50,7 +50,7 @@ $
  
 com.android.sdkextêπï¢(êπï¢
 *
-com.android.tetheringêπï¢ Œ¯ (êπï¢
+com.android.tetheringêπï¢ –∏À(êπï¢
  
 com.android.tzdataêπï¢(êπï¢
 $
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifiêπï¢ «∆€(êπï¢
+com.android.wifiêπï¢ ¡∆€(êπï¢
