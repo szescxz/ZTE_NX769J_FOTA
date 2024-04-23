@@ -8,7 +8,7 @@
 *
 com.android.appsearchêπï¢ —≥Ò(êπï¢
 $
-com.android.artêπï¢ øêπ(êπï¢
+com.android.artêπï¢ ºêπ(êπï¢
 .
 com.android.cellbroadcastêπï¢ ˙‘±(êπï¢
 4
@@ -26,9 +26,9 @@ $
 %
 com.android.ipsecêπï¢ ”ï9(êπï¢
 &
-com.android.mediaêπï¢ Ó(êπï¢
+com.android.mediaêπï¢ ıÓ(êπï¢
 .
-com.android.media.swcodecêπï¢ û‡Ô(êπï¢
+com.android.media.swcodecêπï¢ ü‡Ô(êπï¢
 .
 com.android.mediaproviderêπï¢ ≤’ñ(êπï¢
 /
