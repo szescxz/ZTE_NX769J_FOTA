@@ -30,7 +30,7 @@ $
 .
 com.android.media.swcodecêπï¢ ü‡Ô(êπï¢
 .
-com.android.mediaproviderêπï¢ ∞ıñ(êπï¢
+com.android.mediaproviderêπï¢ ±ıñ(êπï¢
 /
 com.android.neuralnetworksêπï¢ ˘ﬁ±(êπï¢
 8
@@ -50,7 +50,7 @@ $
  
 com.android.sdkextêπï¢(êπï¢
 *
-com.android.tetheringêπï¢ —∏À(êπï¢
+com.android.tetheringêπï¢ ”∏À(êπï¢
  
 com.android.tzdataêπï¢(êπï¢
 $
@@ -60,4 +60,4 @@ $
 
 com.android.vndk.v34(
 %
-com.android.wifiêπï¢ ≈∆€(êπï¢
+com.android.wifiêπï¢ √∆€(êπï¢
