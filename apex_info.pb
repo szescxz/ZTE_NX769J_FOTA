@@ -8,7 +8,7 @@
 *
 com.android.appsearchêπï¢ —≥Ò(êπï¢
 $
-com.android.artêπï¢ ¬êπ(êπï¢
+com.android.artêπï¢ øêπ(êπï¢
 .
 com.android.cellbroadcastêπï¢ ˙‘±(êπï¢
 4
@@ -26,11 +26,11 @@ $
 %
 com.android.ipsecêπï¢ ”ï9(êπï¢
 &
-com.android.mediaêπï¢ Ó(êπï¢
+com.android.mediaêπï¢ ıÓ(êπï¢
 .
-com.android.media.swcodecêπï¢ °‡Ô(êπï¢
+com.android.media.swcodecêπï¢ ¢‡Ô(êπï¢
 .
-com.android.mediaproviderêπï¢ ≤’ñ(êπï¢
+com.android.mediaproviderêπï¢ ≥ıñ(êπï¢
 /
 com.android.neuralnetworksêπï¢ ˘ﬁ±(êπï¢
 8
@@ -50,7 +50,7 @@ $
  
 com.android.sdkextêπï¢(êπï¢
 *
-com.android.tetheringêπï¢ œ¯ (êπï¢
+com.android.tetheringêπï¢ –∏À(êπï¢
  
 com.android.tzdataêπï¢(êπï¢
 $
