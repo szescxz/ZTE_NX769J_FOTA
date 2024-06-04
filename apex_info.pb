@@ -26,7 +26,7 @@ $
 %
 com.android.ipsec¹•¢ Ó•9(¹•¢
 &
-com.android.media¹•¢ õğî(¹•¢
+com.android.media¹•¢ ñï(¹•¢
 .
 com.android.media.swcodec¹•¢ ¢àï(¹•¢
 .
@@ -38,7 +38,7 @@ $
 #
 com.android.os.statsd¹•¢(¹•¢
 +
-com.android.permission¹•¢ ıô”(¹•¢
+com.android.permission¹•¢ úô”(¹•¢
 '
 com.android.resolv¹•¢ »ó‹(¹•¢
 
