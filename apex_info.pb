@@ -8,7 +8,7 @@
 *
 com.android.appsearch¹•¢ Ñ³ñ(¹•¢
 $
-com.android.art¹•¢ Á¹(¹•¢
+com.android.art¹•¢ Â¹(¹•¢
 .
 com.android.cellbroadcast¹•¢ úÔ±(¹•¢
 4
@@ -28,11 +28,11 @@ $
 &
 com.android.media¹•¢ ñï(¹•¢
 .
-com.android.media.swcodec¹•¢ £àï(¹•¢
+com.android.media.swcodec¹•¢ àï(¹•¢
 .
 com.android.mediaprovider¹•¢ ±õ–(¹•¢
 /
-com.android.neuralnetworks¹•¢ ùŞ±(¹•¢
+com.android.neuralnetworks¹•¢ úŞ±(¹•¢
 8
 #com.android.ondevicepersonalization¹•¢ Ì¯—(¹•¢
 #
