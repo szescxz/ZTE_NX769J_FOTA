@@ -30,7 +30,7 @@ $
 .
 com.android.media.swcodecêπï¢ û‡Ô(êπï¢
 .
-com.android.mediaproviderêπï¢ ≥ıñ(êπï¢
+com.android.mediaproviderêπï¢ ≤ıñ(êπï¢
 /
 com.android.neuralnetworksêπï¢ ˙ﬁ±(êπï¢
 8
