@@ -1,65 +1,65 @@
 
-
-com.android.apex.cts.shim
-
-com.android.devicelock
-
-com.android.i18n
-
-com.android.rkpd
-
-com.android.runtime
-
-com.android.uwb¹•¢  Ãô
-
-com.android.virt
-
-com.android.vndk.v34
 
-com.android.adbdÊĞÇ¢ € ñ
-%
-com.android.adservicesªşÔ¢ €àı	
+com.android.apex.cts.shim(
+
+com.android.devicelock(
+
+com.android.i18n(
+
+com.android.rkpd(
+
+com.android.runtime(
 $
-com.android.appsearch¨ñÓ¢ €€í
-
-com.android.art®ÚÓ¢ €Àá
-(
-com.android.cellbroadcastğÙÓ¢ €àƒ
+com.android.uwb¹•¢  Ãô(¹•¢
+
+com.android.virt(
+
+com.android.vndk.v34(
+%
+com.android.adbdÊĞÇ¢ € ñ(ÊĞÇ¢
++
+com.android.adservicesªşÔ¢ €àı	(ªşÔ¢
+*
+com.android.appsearch¨ñÓ¢ €€í(¨ñÓ¢
+$
+com.android.art®ÚÓ¢ €Àá(®ÚÓ¢
 .
- com.android.configinfrastructure”úÁ¢ €€
-#
-com.android.conscryptòÙÓ¢ €Àz
-&
-com.android.extservices™şÔ¢ € ”
-(
-com.android.healthfitness®ùÓ¢ €À½
-
-com.android.ipsec˜àÇ¢ € :
-(
-com.android.media.swcodecÚáÓ¢ € Ú
- 
-com.android.mediaÚáÓ¢ €À˜
-(
-com.android.mediaproviderìáÓ¢ € 
+com.android.cellbroadcastğÙÓ¢ €àƒ(ğÙÓ¢
+4
+ com.android.configinfrastructure”úÁ¢ €€(”úÁ¢
 )
-com.android.neuralnetworksĞÌÍ¢ €à£
-1
-#com.android.ondevicepersonalizationˆˆÂ¢ €À^
-$
-com.android.os.statsdùÓ¢ €€Ë
+com.android.conscryptòÙÓ¢ €Àz(òÙÓ¢
+,
+com.android.extservices™şÔ¢ € ”(™şÔ¢
+.
+com.android.healthfitness®ùÓ¢ €À½(®ùÓ¢
 %
-com.android.permissionúÙÓ¢ €€¡	
-!
-com.android.resolvğÙÓ¢ € †
-$
-com.android.scheduling”úÁ¢ €€
+com.android.ipsec˜àÇ¢ € :(˜àÇ¢
+.
+com.android.media.swcodecÚáÓ¢ € Ú(ÚáÓ¢
+&
+com.android.mediaÚáÓ¢ €À˜(ÚáÓ¢
+.
+com.android.mediaproviderìáÓ¢ € (ìáÓ¢
+/
+com.android.neuralnetworksĞÌÍ¢ €à£(ĞÌÍ¢
+7
+#com.android.ondevicepersonalizationˆˆÂ¢ €À^(ˆˆÂ¢
+*
+com.android.os.statsdùÓ¢ €€Ë(ùÓ¢
++
+com.android.permissionúÙÓ¢ €€¡	(úÙÓ¢
+'
+com.android.resolvğÙÓ¢ € †(ğÙÓ¢
+*
+com.android.scheduling”úÁ¢ €€(”úÁ¢
+&
+com.android.sdkextğÙÓ¢ €à6(ğÙÓ¢
+*
+com.android.tethering†êÓ¢ €àö(†êÓ¢
  
-com.android.sdkextğÙÓ¢ €à6
-$
-com.android.tethering†êÓ¢ €àö
-
-com.android.tzdataˆˆÂ¢
-
-com.android.wifiúÙÓ¢ €€’
-(
- com.google.mainline.primary.libs¨å×¢
+com.android.tzdataˆˆÂ¢(ˆˆÂ¢
+%
+com.android.wifiúÙÓ¢ €€’(úÙÓ¢
+.
+ com.google.mainline.primary.libs¨å×¢(¨å×¢
