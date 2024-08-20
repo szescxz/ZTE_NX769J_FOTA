@@ -26,13 +26,13 @@ $
 %
 com.android.ipsecêπï¢ ”ï9(êπï¢
 &
-com.android.mediaêπï¢ ÒêÔ(êπï¢
+com.android.mediaêπï¢ ıêÔ(êπï¢
 .
 com.android.media.swcodecêπï¢ ù‡Ô(êπï¢
 .
 com.android.mediaproviderêπï¢ ±ıñ(êπï¢
 /
-com.android.neuralnetworksêπï¢ ˙ﬁ±(êπï¢
+com.android.neuralnetworksêπï¢ ˚˛±(êπï¢
 8
 #com.android.ondevicepersonalizationêπï¢ ÃØó(êπï¢
 #
@@ -50,7 +50,7 @@ $
  
 com.android.sdkextêπï¢(êπï¢
 *
-com.android.tetheringêπï¢ “∏À(êπï¢
+com.android.tetheringêπï¢ Õ∏À(êπï¢
  
 com.android.tzdataêπï¢(êπï¢
 $
