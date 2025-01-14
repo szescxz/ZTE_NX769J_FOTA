@@ -1,71 +1,71 @@
 
 %
-com.android.adbdορ§ € ΅(Ή•Ά
+com.android.adbdορ§ € ΅(ορ§
 +
-com.android.adservicesορ§ €ΐ¬(Ή•Ά
+com.android.adservicesορ§ €ΐ¬(ορ§
 
 com.android.apex.cts.shim(
 *
-com.android.appsearchορ§ €€©(Ή•Ά
+com.android.appsearchορ§ €€©(ορ§
 $
-com.android.artορ§ € ‡(Ή•Ά
-
-com.android.btservicesορ§
+com.android.artορ§ € ‡(ορ§
+$
+com.android.btservicesορ§(ορ§
 .
-com.android.cellbroadcastορ§ € ¬(Ή•Ά
+com.android.cellbroadcastορ§ € ¬(ορ§
 4
- com.android.configinfrastructureορ§ € -(Ή•Ά
+ com.android.configinfrastructureορ§ € -(ορ§
 *
-com.android.conscryptορ§ € ¶(Ή•Ά
+com.android.conscryptορ§ € ¶(ορ§
 
 com.android.devicelock(
 ,
-com.android.extservicesορ§ €€Ε(Ή•Ά
+com.android.extservicesορ§ €€Ε(ορ§
 '
-com.android.healthfitnessορ§(Ή•Ά
+com.android.healthfitnessορ§(ορ§
 
 com.android.i18n(
 %
-com.android.ipsecορ§ €ΐ?(Ή•Ά
+com.android.ipsecορ§ €ΐ?(ορ§
 &
-com.android.mediaορ§ €ΐ„(Ή•Ά
+com.android.mediaορ§ €ΐ„(ορ§
 .
-com.android.media.swcodecορ§ € «(Ή•Ά
+com.android.media.swcodecορ§ € «(ορ§
 .
-com.android.mediaproviderορ§ €ΐό(Ή•Ά
+com.android.mediaproviderορ§ €ΐό(ορ§
 /
-com.android.neuralnetworksορ§ €ΰ (Ή•Ά
+com.android.neuralnetworksορ§ €ΰ (ορ§
 8
-#com.android.ondevicepersonalizationορ§ €ΐχ(Ή•Ά
+#com.android.ondevicepersonalizationορ§ €ΐχ(ορ§
 #
-com.android.os.statsdορ§(Ή•Ά
+com.android.os.statsdορ§(ορ§
 +
-com.android.permissionορ§ €€Χ(Ή•Ά
-#
-com.android.profilingορ§ €ΰ/
+com.android.permissionορ§ €€Χ(ορ§
+)
+com.android.profilingορ§ €ΰ/(ορ§
 '
-com.android.resolvορ§ €ΐ—(Ή•Ά
-
-com.android.rkpdορ§(
+com.android.resolvορ§ €ΐ—(ορ§
+
+com.android.rkpdορ§(ορ§
 
 com.android.runtime(
 *
-com.android.schedulingορ§ € (Ή•Ά
+com.android.schedulingορ§ € (ορ§
  
-com.android.sdkextορ§(Ή•Ά
+com.android.sdkextορ§(ορ§
 *
-com.android.tetheringορ§ € (Ή•Ά
+com.android.tetheringορ§ € (ορ§
  
-com.android.tzdataορ§(Ή•Ά
+com.android.tzdataορ§(ορ§
 $
-com.android.uwbορ§ €ΐ¦(Ή•Ά
+com.android.uwbορ§ €ΐ¦(ορ§
 
 com.android.virt(
 %
-com.android.wifiορ§ €ΰο(Ή•Ά
-
-com.android.vndk.v33
+com.android.wifiορ§ €ΰο(ορ§
+
+com.android.vndk.v33(
 
 com.android.vndk.v34(
-#
-com.google.android.widevine°τίΆ
+)
+com.google.android.widevine°τίΆ(°τίΆ
