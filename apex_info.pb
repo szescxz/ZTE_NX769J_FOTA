@@ -65,8 +65,6 @@ $
 com.android.wifiÄ°¤§ €€±(úÙÓ¢
 .
  com.google.mainline.primary.libsÐÅ¤§(¨å×¢
-
-com.android.compos
 
 com.android.vndk.v33
 
