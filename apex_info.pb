@@ -6,7 +6,7 @@
 
 com.android.apex.cts.shim(
 *
-com.android.appsearchορ§ €€©(ορ§
+com.android.appsearchορ§ €ΐ¨(ορ§
 $
 com.android.artορ§ € ‡(ορ§
 $
@@ -32,7 +32,7 @@ $
 .
 com.android.media.swcodecορ§ € «(ορ§
 .
-com.android.mediaproviderορ§ € ύ(ορ§
+com.android.mediaproviderορ§ €ΐύ(ορ§
 /
 com.android.neuralnetworksορ§ €ΰ (ορ§
 8
@@ -40,7 +40,7 @@ $
 #
 com.android.os.statsdορ§(ορ§
 +
-com.android.permissionορ§ €ΰΫ(ορ§
+com.android.permissionορ§ €ΐΫ(ορ§
 )
 com.android.profilingορ§ €ΰ/(ορ§
 '
