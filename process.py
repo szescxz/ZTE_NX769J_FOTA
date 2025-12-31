@@ -172,7 +172,9 @@ def add_package_to_github_release(ota_name, dd_url):
     ota_url = dd.object_uri
     ota_payload_properties_url = dd.abdd
 
-    target_version = re.search(r"<TargetVersion>(.*)</TargetVersion>", dd.description).group(1)
+    # TargetVersion is not reliable at the moment
+    # see https://web.archive.org/web/20251231102756id_/https://dleu.ztems.com/zxmdmp/download.do?doWhat=getDD&filename=firmwarepackages/DE/ZTE/NX769J/432594/GEN_EEA_NX769SV2.0.0B07_TO_GEN_EEA_NX769SV2.0.0B06MR1_CDN.dd
+    #target_version = re.search(r"<TargetVersion>(.*)</TargetVersion>", dd.description).group(1)
     release_notes = re.search(r"<ReleaseNotes>(.*)</ReleaseNotes>", dd.description).group(1)
 
     with requests.get(ota_payload_properties_url) as resp:
@@ -206,7 +208,7 @@ def add_package_to_github_release(ota_name, dd_url):
                 assert hasher.digest() == b64decode(ota_payload_properties["FILE_HASH"])
 
             package_build_prop = load_props(ota_file.read("build.prop"))
-            assert package_build_prop["ro.build.display.id"] == target_version
+            #assert package_build_prop["ro.build.display.id"] == target_version
             sw_internal_version = package_build_prop["ro.build.sw_internal_version"]
 
             with requests.get(
