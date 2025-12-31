@@ -1,0 +1,5 @@
+asn1crypto==1.5.1
+cryptography==46.0.3
+protobuf==6.33.2
+python-dateutil==2.9.0.post0
+requests==2.32.5

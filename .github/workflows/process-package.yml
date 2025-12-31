@@ -1,0 +1,35 @@
+name: Process FOTA Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: URL of the FOTA Package
+      branch:
+        description: Branch name of the git repository
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clone Python scripts for CI
+        uses: actions/checkout@v6
+        with:
+          ref: _ci
+
+      - name: Clone existing data
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          path: repo
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Process FOTA package
+        run: python process.py '${{ github.event.inputs.url }}' repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
