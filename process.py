@@ -181,6 +181,10 @@ def add_package_to_github_release(ota_name, dd_url):
         resp.raise_for_status()
         ota_payload_properties = load_props(resp.content)
 
+    ota_hashers = {
+        "sha256": hashlib.sha256()
+    }
+
     print("Downloading OTA package")
     with tempfile.TemporaryFile() as temp_file:
         fixed_ota_url = re.sub(r'http[s]?://(.+?)(:80|:443)?/(.+)', r'https://\1/\3', ota_url)
@@ -189,6 +193,12 @@ def add_package_to_github_release(ota_name, dd_url):
 
             for chunk in resp.iter_content(4096):
                 temp_file.write(chunk)
+                for hasher in ota_hashers.values():
+                    hasher.update(chunk)
+
+        print("Digests:")
+        for alg, hasher in ota_hashers.items():
+            print(f"{alg}:{hasher.hexdigest()}")
 
         print("Validating OTA package")
         verify_package(temp_file, temp_file.tell(), "otacerts.zip")
@@ -196,16 +206,16 @@ def add_package_to_github_release(ota_name, dd_url):
         temp_file.seek(0)
 
         with ZipFile(temp_file, "r") as ota_file:
-            hasher = hashlib.sha256()
+            payload_hasher = hashlib.sha256()
             with ota_file.open("payload.bin", "r") as payload_file:
                 while True:
                     chunk = payload_file.read(4096)
                     if chunk:
-                        hasher.update(chunk)
+                        payload_hasher.update(chunk)
                     else:
                         break
                 assert payload_file.tell() == int(ota_payload_properties["FILE_SIZE"])
-                assert hasher.digest() == b64decode(ota_payload_properties["FILE_HASH"])
+                assert payload_hasher.digest() == b64decode(ota_payload_properties["FILE_HASH"])
 
             package_build_prop = load_props(ota_file.read("build.prop"))
             #assert package_build_prop["ro.build.display.id"] == target_version
@@ -296,6 +306,9 @@ def add_package_to_github_release(ota_name, dd_url):
         else:
             resp = github_req("POST", github_release["upload_url"].replace("{?name,label}", f"?name={asset_name}"), headers={"Content-Type": "application/zip"}, data=temp_file)
             resp.raise_for_status()
+            digest = resp.json()["digest"]
+            digest_alg, digest_value = digest.split(":")
+            assert ota_hashers[digest_alg].hexdigest() == digest_value
 
 def main():
     url = sys.argv[1]
