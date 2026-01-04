@@ -299,7 +299,10 @@ def add_package_to_github_release(ota_name, dd_url):
 
 def main():
     url = sys.argv[1]
-    repo_folder = sys.argv[2]
+    if len(sys.argv) > 2:
+        repo_folder = sys.argv[2]
+    else:
+        repo_folder = None
 
     match_result = re.match(
         rf'(http[s]?://dl.+?\.ztems\.com)(:80|:443)?/zxmdmp/download.do\?doWhat=(getUp|getDD)&filename=(/)?firmwarepackages/(.+)?/ZTE/{DEVICE_MODELS[0]}/(\d+)/(.+?)\.(dd|up)',
@@ -317,7 +320,11 @@ def main():
     ota_url = f"{ota_server}{ota_server_port}/zxmdmp/download.do?doWhat=getUp&filename=/firmwarepackages/{ota_region}/ZTE/{DEVICE_MODELS[0]}/{ota_id}/{ota_name}.up"
     dd_url = f"{ota_server}{ota_server_port}/zxmdmp/download.do?doWhat=getDD&filename=/firmwarepackages/{ota_region}/ZTE/{DEVICE_MODELS[0]}/{ota_id}/{ota_name}_CDN.dd"
 
-    update_tracking_repository(repo_folder, ota_url)
+    if repo_folder is None:
+        print("Git repository folder not specified, skipping repository update")
+    else:
+        update_tracking_repository(repo_folder, ota_url)
+
     add_package_to_github_release(ota_name, dd_url)
 
 if __name__ == "__main__":
