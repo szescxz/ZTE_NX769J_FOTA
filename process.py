@@ -130,185 +130,186 @@ def update_tracking_repository(repo_folder, ota_url):
         git_commit(repo_folder, ota_build_props)
 
 def add_package_to_github_release(ota_name, dd_url):
-    def github_req(method, url_or_uri, headers={}, data=None, json=None):
-        headers = dict(headers)
-        headers.update({
-            "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {os.environ.get('GITHUB_TOKEN')}",
-            "X-GitHub-Api-Version": "2022-11-28"
-        })
+    with requests.Session() as session:
+        def github_req(method, url_or_uri, headers={}, data=None, json=None):
+            headers = dict(headers)
+            headers.update({
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {os.environ.get('GITHUB_TOKEN')}",
+                "X-GitHub-Api-Version": "2022-11-28"
+            })
 
-        if url_or_uri.startswith("https://"):
-            url = url_or_uri
-        else:
-            url = f"https://api.github.com{url_or_uri}"
+            if url_or_uri.startswith("https://"):
+                url = url_or_uri
+            else:
+                url = f"https://api.github.com{url_or_uri}"
 
-        return requests.request(method, url, headers=headers, data=data, json=json)
+            return session.request(method, url, headers=headers, data=data, json=json)
 
-    def github_iterate_releases():
-        uri_or_url = f"/repos/{GITHUB_REPOSITORY}/releases"
-        while True:
-            resp = github_req("GET", uri_or_url)
-            resp.raise_for_status()
-            for release in resp.json():
-                yield release
-            if "link" in resp.headers:
-                for i in resp.headers["link"].split(","):
-                    link = i.strip()
+        def github_iterate_releases():
+            uri_or_url = f"/repos/{GITHUB_REPOSITORY}/releases"
+            while True:
+                resp = github_req("GET", uri_or_url)
+                resp.raise_for_status()
+                for release in resp.json():
+                    yield release
+                if "link" in resp.headers:
+                    for i in resp.headers["link"].split(","):
+                        link = i.strip()
+
+                        if 'rel="next"' in link:
+                            break
 
                     if 'rel="next"' in link:
-                        break
+                        uri_or_url = re.match(r'<(https://api.github.com/.+)>', link).group(1)
+                        continue
 
-                if 'rel="next"' in link:
-                    uri_or_url = re.match(r'<(https://api.github.com/.+)>', link).group(1)
-                    continue
+                return
 
-            return
+        print("Reading OTA information")
+        dd = DownloadDescriptor(dd_url)
 
-    print("Reading OTA information")
-    dd = DownloadDescriptor(dd_url)
+        assert ota_name.endswith(dd.name.replace(".dd", ""))
+        ota_url = dd.object_uri
+        ota_payload_properties_url = dd.abdd
 
-    assert ota_name.endswith(dd.name.replace(".dd", ""))
-    ota_url = dd.object_uri
-    ota_payload_properties_url = dd.abdd
+        # TargetVersion is not reliable at the moment
+        # see https://web.archive.org/web/20251231102756id_/https://dleu.ztems.com/zxmdmp/download.do?doWhat=getDD&filename=firmwarepackages/DE/ZTE/NX769J/432594/GEN_EEA_NX769SV2.0.0B07_TO_GEN_EEA_NX769SV2.0.0B06MR1_CDN.dd
+        #target_version = re.search(r"<TargetVersion>(.*)</TargetVersion>", dd.description).group(1)
+        release_notes = re.search(r"<ReleaseNotes>(.*)</ReleaseNotes>", dd.description).group(1)
 
-    # TargetVersion is not reliable at the moment
-    # see https://web.archive.org/web/20251231102756id_/https://dleu.ztems.com/zxmdmp/download.do?doWhat=getDD&filename=firmwarepackages/DE/ZTE/NX769J/432594/GEN_EEA_NX769SV2.0.0B07_TO_GEN_EEA_NX769SV2.0.0B06MR1_CDN.dd
-    #target_version = re.search(r"<TargetVersion>(.*)</TargetVersion>", dd.description).group(1)
-    release_notes = re.search(r"<ReleaseNotes>(.*)</ReleaseNotes>", dd.description).group(1)
-
-    with requests.get(ota_payload_properties_url) as resp:
-        resp.raise_for_status()
-        ota_payload_properties = load_props(resp.content)
-
-    ota_hashers = {
-        "sha256": hashlib.sha256()
-    }
-
-    print("Downloading OTA package")
-    with tempfile.TemporaryFile() as temp_file:
-        fixed_ota_url = re.sub(r'http[s]?://(.+?)(:80|:443)?/(.+)', r'https://\1/\3', ota_url)
-        with requests.get(fixed_ota_url, stream=True) as resp:
+        with session.get(ota_payload_properties_url) as resp:
             resp.raise_for_status()
+            ota_payload_properties = load_props(resp.content)
 
-            for chunk in resp.iter_content(4096):
-                temp_file.write(chunk)
-                for hasher in ota_hashers.values():
-                    hasher.update(chunk)
+        ota_hashers = {
+            "sha256": hashlib.sha256()
+        }
 
-        print("Digests:")
-        for alg, hasher in ota_hashers.items():
-            print(f"{alg}:{hasher.hexdigest()}")
-
-        print("Validating OTA package")
-        verify_package(temp_file, temp_file.tell(), "otacerts.zip")
-
-        temp_file.seek(0)
-
-        with ZipFile(temp_file, "r") as ota_file:
-            payload_hasher = hashlib.sha256()
-            with ota_file.open("payload.bin", "r") as payload_file:
-                while True:
-                    chunk = payload_file.read(4096)
-                    if chunk:
-                        payload_hasher.update(chunk)
-                    else:
-                        break
-                assert payload_file.tell() == int(ota_payload_properties["FILE_SIZE"])
-                assert payload_hasher.digest() == b64decode(ota_payload_properties["FILE_HASH"])
-
-            package_build_prop = load_props(ota_file.read("build.prop"))
-            #assert package_build_prop["ro.build.display.id"] == target_version
-            sw_internal_version = package_build_prop["ro.build.sw_internal_version"]
-
-            with requests.get(
-                f"https://github.com/{GITHUB_REPOSITORY}/raw/{sw_internal_version}/build.prop",
-                headers=GITHUBUSERCONTENT_HTTP_HEADERS
-            ) as resp:
-                if resp.status_code == 403:
-                    print(resp.text)
+        print("Downloading OTA package")
+        with tempfile.TemporaryFile() as temp_file:
+            fixed_ota_url = re.sub(r'http[s]?://(.+?)(:80|:443)?/(.+)', r'https://\1/\3', ota_url)
+            with session.get(fixed_ota_url, stream=True) as resp:
                 resp.raise_for_status()
-                repo_build_prop = load_props(resp.content)
-                assert package_build_prop == repo_build_prop, "build.prop mismatch"
 
-            package_metadata = load_props(ota_file.read("META-INF/com/android/metadata"))
-            assert package_metadata["post-build"] == package_build_prop["ro.system.build.fingerprint"]
-            with requests.get(
-                f"https://github.com/{GITHUB_REPOSITORY}/raw/{ota_name.split('_TO_')[0]}/build.prop",
-                headers=GITHUBUSERCONTENT_HTTP_HEADERS
-            ) as resp:
-                if resp.status_code != 404:
+                for chunk in resp.iter_content(4096):
+                    temp_file.write(chunk)
+                    for hasher in ota_hashers.values():
+                        hasher.update(chunk)
+
+            print("Digests:")
+            for alg, hasher in ota_hashers.items():
+                print(f"{alg}:{hasher.hexdigest()}")
+
+            print("Validating OTA package")
+            verify_package(temp_file, temp_file.tell(), "otacerts.zip")
+
+            temp_file.seek(0)
+
+            with ZipFile(temp_file, "r") as ota_file:
+                payload_hasher = hashlib.sha256()
+                with ota_file.open("payload.bin", "r") as payload_file:
+                    while True:
+                        chunk = payload_file.read(4096)
+                        if chunk:
+                            payload_hasher.update(chunk)
+                        else:
+                            break
+                    assert payload_file.tell() == int(ota_payload_properties["FILE_SIZE"])
+                    assert payload_hasher.digest() == b64decode(ota_payload_properties["FILE_HASH"])
+
+                package_build_prop = load_props(ota_file.read("build.prop"))
+                #assert package_build_prop["ro.build.display.id"] == target_version
+                sw_internal_version = package_build_prop["ro.build.sw_internal_version"]
+
+                with session.get(
+                    f"https://github.com/{GITHUB_REPOSITORY}/raw/{sw_internal_version}/build.prop",
+                    headers=GITHUBUSERCONTENT_HTTP_HEADERS
+                ) as resp:
                     if resp.status_code == 403:
                         print(resp.text)
                     resp.raise_for_status()
-                    source_build_prop = load_props(resp.text)
-                    if package_metadata["pre-build"] != source_build_prop["ro.system.build.fingerprint"]:
-                        warnings.warn("source build fingerprint mismatch")
+                    repo_build_prop = load_props(resp.content)
+                    assert package_build_prop == repo_build_prop, "build.prop mismatch"
 
-            print("Publishing/updating release notes")
+                package_metadata = load_props(ota_file.read("META-INF/com/android/metadata"))
+                assert package_metadata["post-build"] == package_build_prop["ro.system.build.fingerprint"]
+                with session.get(
+                    f"https://github.com/{GITHUB_REPOSITORY}/raw/{ota_name.split('_TO_')[0]}/build.prop",
+                    headers=GITHUBUSERCONTENT_HTTP_HEADERS
+                ) as resp:
+                    if resp.status_code != 404:
+                        if resp.status_code == 403:
+                            print(resp.text)
+                        resp.raise_for_status()
+                        source_build_prop = load_props(resp.text)
+                        if package_metadata["pre-build"] != source_build_prop["ro.system.build.fingerprint"]:
+                            warnings.warn("source build fingerprint mismatch")
 
-            is_downgrade = package_metadata.get("ota-downgrade", None) == "yes"
-            if is_downgrade:
-                assert int(ota_payload_properties.get("POWERWASH", "0")) == 1
+                print("Publishing/updating release notes")
 
-            github_release = None
-            for release in github_iterate_releases():
-                if release["tag_name"] == sw_internal_version:
-                    github_release = release
+                is_downgrade = package_metadata.get("ota-downgrade", None) == "yes"
+                if is_downgrade:
+                    assert int(ota_payload_properties.get("POWERWASH", "0")) == 1
 
-            if github_release is None:
-                github_release_notes = f"📅 {package_build_prop['ro.build.date']}"
+                github_release = None
+                for release in github_iterate_releases():
+                    if release["tag_name"] == sw_internal_version:
+                        github_release = release
 
-                if IS_REDMAGIC:
-                    full_ota_url = redmagic_probe_full_ota_url(DEVICE_MODELS, package_build_prop["ro.build.display.id"], package_build_prop["ro.build.sw_internal_version"])
-                    if full_ota_url is not None:
-                        github_release_notes += f"\n{full_ota_url}"
+                if github_release is None:
+                    github_release_notes = f"📅 {package_build_prop['ro.build.date']}"
+
+                    if IS_REDMAGIC:
+                        full_ota_url = redmagic_probe_full_ota_url(DEVICE_MODELS, package_build_prop["ro.build.display.id"], package_build_prop["ro.build.sw_internal_version"])
+                        if full_ota_url is not None:
+                            github_release_notes += f"\n{full_ota_url}"
+                else:
+                    github_release_notes = github_release["body"].strip()
+
+                package_release_notes = "<details>"
+                package_release_notes += f'<summary><a href="{html.escape(ota_url)}"><code>{html.escape(ota_name)}</code></a>{"⚠️" if is_downgrade else ""}</summary>'
+                package_release_notes += release_notes
+                package_release_notes += "</details>"
+
+                if package_release_notes in github_release_notes:
+                    print("Release notes already uploaded")
+                elif ota_name in github_release_notes:
+                    raise NotImplementedError
+                else:
+                    # TODO: try to fetch in other languages (e.g. _ja_jp.dd, _it_it.dd)
+                    github_release_notes += "\n\n"
+                    github_release_notes += package_release_notes
+
+                release_json = {
+                    "tag_name": sw_internal_version,
+                    "name": package_build_prop["ro.build.display.id"],
+                    "body": github_release_notes.strip(),
+                    "draft": True if github_release is None else github_release["draft"],
+                    "make_latest": "false"
+                }
+                if github_release is None:
+                    resp = github_req("POST", f"/repos/{GITHUB_REPOSITORY}/releases", json=release_json)
+                    resp.raise_for_status()
+                    github_release = resp.json()
+                elif github_release["body"].strip() != github_release_notes.strip():
+                    resp = github_req("PATCH", f'/repos/{GITHUB_REPOSITORY}/releases/{github_release["id"]}', json=release_json)
+                    resp.raise_for_status()
+                    github_release = resp.json()
+
+            print("Uploading OTA package")
+
+            temp_file.seek(0)
+            asset_name = ota_url.split("/")[-1]
+            uploaded_assets = [asset["name"] for asset in github_release["assets"]]
+            if asset_name in uploaded_assets:
+                print("OTA package already uploaded")
             else:
-                github_release_notes = github_release["body"].strip()
-
-            package_release_notes = "<details>"
-            package_release_notes += f'<summary><a href="{html.escape(ota_url)}"><code>{html.escape(ota_name)}</code></a>{"⚠️" if is_downgrade else ""}</summary>'
-            package_release_notes += release_notes
-            package_release_notes += "</details>"
-
-            if package_release_notes in github_release_notes:
-                print("Release notes already uploaded")
-            elif ota_name in github_release_notes:
-                raise NotImplementedError
-            else:
-                # TODO: try to fetch in other languages (e.g. _ja_jp.dd, _it_it.dd)
-                github_release_notes += "\n\n"
-                github_release_notes += package_release_notes
-
-            release_json = {
-                "tag_name": sw_internal_version,
-                "name": package_build_prop["ro.build.display.id"],
-                "body": github_release_notes.strip(),
-                "draft": True if github_release is None else github_release["draft"],
-                "make_latest": "false"
-            }
-            if github_release is None:
-                resp = github_req("POST", f"/repos/{GITHUB_REPOSITORY}/releases", json=release_json)
+                resp = github_req("POST", github_release["upload_url"].replace("{?name,label}", f"?name={asset_name}"), headers={"Content-Type": "application/zip"}, data=temp_file)
                 resp.raise_for_status()
-                github_release = resp.json()
-            elif github_release["body"].strip() != github_release_notes.strip():
-                resp = github_req("PATCH", f'/repos/{GITHUB_REPOSITORY}/releases/{github_release["id"]}', json=release_json)
-                resp.raise_for_status()
-                github_release = resp.json()
-
-        print("Uploading OTA package")
-
-        temp_file.seek(0)
-        asset_name = ota_url.split("/")[-1]
-        uploaded_assets = [asset["name"] for asset in github_release["assets"]]
-        if asset_name in uploaded_assets:
-            print("OTA package already uploaded")
-        else:
-            resp = github_req("POST", github_release["upload_url"].replace("{?name,label}", f"?name={asset_name}"), headers={"Content-Type": "application/zip"}, data=temp_file)
-            resp.raise_for_status()
-            digest = resp.json()["digest"]
-            digest_alg, digest_value = digest.split(":")
-            assert ota_hashers[digest_alg].hexdigest() == digest_value
+                digest = resp.json()["digest"]
+                digest_alg, digest_value = digest.split(":")
+                assert ota_hashers[digest_alg].hexdigest() == digest_value
 
 def main():
     url = sys.argv[1]
