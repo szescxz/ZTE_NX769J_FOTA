@@ -7,6 +7,10 @@ on:
         description: URL of the FOTA Package
       branch:
         description: Branch name of the git repository
+      mask:
+        description: Mask sensitive parts of the URL
+        type: boolean
+        default: false
 
 jobs:
   process:
@@ -15,6 +19,14 @@ jobs:
       contents: write
 
     steps:
+      - name: Mask sensitive parts of the URL
+        if: ${{ inputs.mask }}
+        run: |
+          SENSITIVE_PART_1=$(jq -r '.inputs.url' $GITHUB_EVENT_PATH | grep -Po '/ZTE/.+/\K([0-9]+)')
+          echo ::add-mask::$SENSITIVE_PART_1
+          SENSITIVE_PART_2=$(jq -r '.inputs.url' $GITHUB_EVENT_PATH | grep -Po '/ZTE/.+/([0-9]+)/\K.+?(?=GEN_)')
+          echo ::add-mask::$SENSITIVE_PART_2
+
       - name: Clone Python scripts for CI
         uses: actions/checkout@v6
         with:
