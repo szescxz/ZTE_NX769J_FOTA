@@ -319,7 +319,7 @@ def main():
         repo_folder = None
 
     match_result = re.match(
-        rf'(http[s]?://dl.+?\.ztems\.com)(:80|:443)?/zxmdmp/download.do\?doWhat=(getUp|getDD)&filename=(/)?firmwarepackages/(.+)?/ZTE/{DEVICE_MODELS[0]}/(\d+)/(.+?)\.(dd|up)',
+        rf'(http[s]?://dl.+?\.ztems\.com)(:80|:443)?/zxmdmp/download.do\?doWhat=(getUp|getDD)&filename=(/)?firmwarepackages/(.+)/ZTE/{DEVICE_MODELS[0]}/(\d+)/(.+?)\.(dd|up)',
         url
     )
     assert match_result is not None, "Malformed or unsupported URL"
