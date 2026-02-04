@@ -252,7 +252,7 @@ def verify_package(package_file, file_len, device_certs_zip_file):
 
     signature_key.verify(
         sig_info["signature"].native,
-        mmap.mmap(package_file.fileno(), file_len - comment_size - 2),
+        mmap.mmap(package_file.fileno(), file_len - comment_size - 2, access=mmap.ACCESS_READ),
         pad,
         alg
     )
