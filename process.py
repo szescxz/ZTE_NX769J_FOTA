@@ -202,7 +202,7 @@ def add_package_to_github_release(ota_name, dd_url):
                 print(f"{alg}:{hasher.hexdigest()}")
 
             print("Validating OTA package")
-            verify_package(temp_file, temp_file.tell(), "otacerts.zip")
+            verify_package(temp_file, temp_file.tell(), HttpFile(f"https://github.com/{GITHUB_REPOSITORY}/raw/refs/heads/_certs/otacerts.zip"))
 
             temp_file.seek(0)
 
