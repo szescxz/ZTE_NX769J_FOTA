@@ -42,7 +42,7 @@ jobs:
         run: pip install -r requirements.txt
       
       - name: Process FOTA package
-        run: python process.py '${{ github.event.inputs.url }}' repo
+        run: python -u process.py '${{ github.event.inputs.url }}' repo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEVICE_MODELS: ${{ vars.DEVICE_MODELS }}
