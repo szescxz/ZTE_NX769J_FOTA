@@ -45,3 +45,4 @@ jobs:
         run: python process.py '${{ github.event.inputs.url }}' repo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEVICE_MODELS: ${{ vars.DEVICE_MODELS }}
