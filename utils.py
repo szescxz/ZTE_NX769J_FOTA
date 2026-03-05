@@ -190,11 +190,13 @@ def redmagic_probe_full_ota_url(models, build_display_id, sw_internal_version):
             # https://rom.download.nubia.com/Europe%26Asia/NX769S/GEN_NEEA_NX769SV1BV1.0.0B14MR3_SD_WO_ERA.zip
             f"{full_ota_prefix}{model}/{sw_internal_version}_SD_WO_ERA.zip",
             # https://rom.download.nubia.com/Europe/NX769S/V9.5.08/update.zip
-            full_ota_prefix + f"{model}/" + "V" + ".".join(build_display_id.split(".")[:2]).replace("REDMAGICOS", "") + "." + build_display_id.split(".")[-1].split("_")[0].zfill(2) + "/update.zip",
+            f"{full_ota_prefix}{model}/V{'.'.join(build_display_id.split('.')[:2]).replace('REDMAGICOS', '')}.{build_display_id.split('.')[-1].split('_')[0].zfill(2)}/update.zip",
             # https://rom.download.nubia.com/Europe%26Asia/NX769S/V10.0.4/update.zip
-            full_ota_prefix + f"{model}/" + "V" + ".".join(build_display_id.split(".")[:2]).replace("REDMAGICOS", "") + "." + build_display_id.split(".")[-1].split("_")[0] + "/update.zip",
+            f"{full_ota_prefix}{model}/V{'.'.join(build_display_id.split('.')[:2]).replace('REDMAGICOS', '')}.{build_display_id.split('.')[-1].split('_')[0]}/update.zip",
             # https://rom.download.nubia.com/Europe%26Asia/NX769S/V9.5.15/NEEA_NX769S.zip
-            full_ota_prefix + f"{model}/" + "V" + ".".join(build_display_id.split(".")[:2]).replace("REDMAGICOS", "") + "." + build_display_id.split(".")[-1].split("_")[0].zfill(2) + f"/{'_'.join(sw_internal_version.split('_')[1:3]).split('V')[0]}.zip"
+            f"{full_ota_prefix}{model}/V{'.'.join(build_display_id.split('.')[:2]).replace('REDMAGICOS', '')}.{build_display_id.split('.')[-1].split('_')[0].zfill(2)}/{'_'.join(sw_internal_version.split('_')[1:3]).split('V')[0]}.zip",
+            # https://rom.download.nubia.com/Europe%26Asia/NX769S/REDMAGICOS10.0.7MR1_GB/update.zip
+            f"{full_ota_prefix}{model}/{build_display_id}/update.zip"
         ]:
             if requests.head(full_ota_url).ok:
                 return full_ota_url
