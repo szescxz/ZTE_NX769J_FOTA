@@ -104,13 +104,23 @@ def update_tracking_repository(repo_folder, ota_url):
             with open(os.path.join(repo_folder, "build.prop"), "r") as f:
                 repo_build_props = load_props(f.read())
 
-            if metadata["pre-build"] != repo_build_props["ro.system.build.fingerprint"] or metadata["pre-build-incremental"] != repo_build_props["ro.build.version.incremental"]:
+            if "_TO_" in ota_url and ota_url.endswith(".up"):
+                if metadata["pre-build"] != repo_build_props["ro.system.build.fingerprint"] or metadata["pre-build-incremental"] != repo_build_props["ro.build.version.incremental"]:
+                    known_versions = subprocess.check_output("git tag", shell=True, cwd=repo_folder).decode().splitlines()
+                    if ota_build_props["ro.build.sw_internal_version"] in known_versions:
+                        print("Target build version exists, no need to update repository")
+                        return
+                    assert int(ota_build_props["ro.system.build.date.utc"]) > int(repo_build_props["ro.system.build.date.utc"]), "Target build is older than latest commit, cannot proceed automatically"
+                    warnings.warn("Source build mismatch")
+            elif ota_url.endswith("_SD_WO_ERA.zip"):
+                print("Full OTA package detected")
                 known_versions = subprocess.check_output("git tag", shell=True, cwd=repo_folder).decode().splitlines()
                 if ota_build_props["ro.build.sw_internal_version"] in known_versions:
                     print("Target build version exists, no need to update repository")
                     return
                 assert int(ota_build_props["ro.system.build.date.utc"]) > int(repo_build_props["ro.system.build.date.utc"]), "Target build is older than latest commit, cannot proceed automatically"
-                warnings.warn("Source build mismatch")
+            else:
+                raise NotImplementedError
 
             if metadata.get("ota-downgrade", None) == "yes":
                 print("Downgrade package detected, no need to update repository")
@@ -216,6 +226,8 @@ def add_package_to_github_release(ota_name, dd_url):
 
             temp_file.seek(0)
 
+            is_full_ota = True
+
             with ZipFile(temp_file, "r") as ota_file:
                 payload_hasher = hashlib.sha256()
                 with ota_file.open("payload.bin", "r") as payload_file:
@@ -227,6 +239,13 @@ def add_package_to_github_release(ota_name, dd_url):
                             break
                     assert payload_file.tell() == int(ota_payload_properties["FILE_SIZE"])
                     assert payload_hasher.digest() == b64decode(ota_payload_properties["FILE_HASH"])
+
+                    payload_file.seek(0)
+                    payload = DeltaUpdateFile(payload_file)
+                    for part in payload.manifest.partitions:
+                        if part.old_partition_info is not None:
+                            is_full_ota = False
+                            break
 
                 package_build_prop = load_props(ota_file.read("build.prop"))
                 #assert package_build_prop["ro.build.display.id"] == target_version
@@ -270,10 +289,11 @@ def add_package_to_github_release(ota_name, dd_url):
                 if github_release is None:
                     github_release_notes = f"📅 {package_build_prop['ro.build.date']}"
 
-                    if IS_REDMAGIC:
-                        full_ota_url = redmagic_probe_full_ota_url(DEVICE_MODELS, package_build_prop["ro.build.display.id"], package_build_prop["ro.build.sw_internal_version"])
-                        if full_ota_url is not None:
-                            github_release_notes += f"\n{full_ota_url}"
+                    if not is_full_ota:
+                        if IS_REDMAGIC:
+                            full_ota_url = redmagic_probe_full_ota_url(DEVICE_MODELS, package_build_prop["ro.build.display.id"], package_build_prop["ro.build.sw_internal_version"])
+                            if full_ota_url is not None:
+                                github_release_notes += f"\n{full_ota_url}"
                 else:
                     github_release_notes = github_release["body"].strip()
 
@@ -329,7 +349,7 @@ def main():
         repo_folder = None
 
     match_result = re.match(
-        rf'(http[s]?://dl.+?\.ztems\.com)(:80|:443)?/zxmdmp/download.do\?doWhat=(getUp|getDD)&filename=(/)?firmwarepackages/(.+)/ZTE/{DEVICE_MODELS[0]}/(\d+)/(.+?)\.(dd|up)',
+        rf'(http[s]?://dl.+?\.ztems\.com)(:80|:443)?/zxmdmp/download.do\?doWhat=(getUp|getDD)&filename=(/)?firmwarepackages/(.+)/ZTE/{DEVICE_MODELS[0]}/(\d+)/(.+?)\.(dd|up|zip)',
         url
     )
     assert match_result is not None, "Malformed or unsupported URL"
@@ -341,7 +361,10 @@ def main():
     ota_id = match_result.group(6)
     ota_name = match_result.group(7).replace("_CDN", "")
 
-    ota_url = f"{ota_server}{ota_server_port}/zxmdmp/download.do?doWhat=getUp&filename=/firmwarepackages/{ota_region}/ZTE/{DEVICE_MODELS[0]}/{ota_id}/{ota_name}.up"
+    if "_SD_WO_ERA" in ota_name:
+        ota_url = f"{ota_server}{ota_server_port}/zxmdmp/download.do?doWhat=getUp&filename=/firmwarepackages/{ota_region}/ZTE/{DEVICE_MODELS[0]}/{ota_id}/{ota_name}.zip"
+    else:
+        ota_url = f"{ota_server}{ota_server_port}/zxmdmp/download.do?doWhat=getUp&filename=/firmwarepackages/{ota_region}/ZTE/{DEVICE_MODELS[0]}/{ota_id}/{ota_name}.up"
     dd_url = f"{ota_server}{ota_server_port}/zxmdmp/download.do?doWhat=getDD&filename=/firmwarepackages/{ota_region}/ZTE/{DEVICE_MODELS[0]}/{ota_id}/{ota_name}_CDN.dd"
 
     if repo_folder is None:
