@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 import warnings
 
 from base64 import b64decode
@@ -15,7 +16,7 @@ from zipfile import ZipFile
 
 import requests
 
-from utils import DeltaUpdateFile, DownloadDescriptor, HttpFile, load_props, redmagic_probe_full_ota_url, verify_package
+from utils import clear_line, DeltaUpdateFile, DownloadDescriptor, HttpFile, load_props, progress, redmagic_probe_full_ota_url, verify_package
 
 DEVICE_MODELS = os.environ.get("DEVICE_MODELS", "NX769J,NX769S").split(",")
 IS_REDMAGIC = int(os.environ.get("IS_REDMAGIC", "1"))
@@ -191,11 +192,20 @@ def add_package_to_github_release(ota_name, dd_url):
             fixed_ota_url = re.sub(r'http[s]?://(.+?)(:80|:443)?/(.+)', r'https://\1/\3', ota_url)
             with session.get(fixed_ota_url, stream=True) as resp:
                 resp.raise_for_status()
+                total_size = int(resp.headers["content-length"])
 
-                for chunk in resp.iter_content(4096):
+                last_timestamp = time.time()
+                last_offset = 0
+                for chunk in resp.iter_content(10245760):
                     temp_file.write(chunk)
                     for hasher in ota_hashers.values():
                         hasher.update(chunk)
+
+                    if time.time() - last_timestamp > 10:
+                        progress(temp_file.tell(), total_size, (temp_file.tell() - last_offset) / (time.time() - last_timestamp))
+                        last_timestamp = time.time()
+                        last_offset = temp_file.tell()
+                clear_line()
 
             print("Digests:")
             for alg, hasher in ota_hashers.items():

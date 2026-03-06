@@ -5,6 +5,7 @@ import threading
 import warnings
 
 from queue import Queue
+from shutil import get_terminal_size
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
@@ -258,3 +259,38 @@ def verify_package(package_file, file_len, device_certs_zip_file):
         pad,
         alg
     )
+
+def size_unit(raw_size):
+    unit = "B"
+    if raw_size >= 1024:
+        raw_size /= 1024
+        unit = "KB"
+        if raw_size >= 1024:
+            raw_size /= 1024
+            unit = "MB"
+            if raw_size >= 1024:
+                raw_size /= 1024
+                unit = "GB"
+    return "%.1f%s" % (raw_size, unit)
+
+def time_unit(raw_time):
+    unit = "s"
+    if raw_time >= 60:
+        raw_time /= 60
+        unit = "m"
+        if raw_time >= 60:
+            raw_time /= 60
+            unit = "h"
+            if raw_time >= 24:
+                raw_time /= 24
+                unit = "d"
+    return "%.1f%s" % (raw_time, unit)
+
+def clear_line():
+    print(" " * get_terminal_size().columns, end="\r")
+
+def progress(current, total, speed, prompt="Downloading: "):
+    percentage = int((current / total) * 100)
+    eta = ((total - current) / speed) if speed != 0 else 0
+    clear_line()
+    print("%s%s/%s (%s%%), %s/s, ETA %s" % (prompt, size_unit(current), size_unit(total), percentage, size_unit(speed), time_unit(eta)), end="\r")
