@@ -18,7 +18,8 @@ import requests
 
 from utils import clear_line, DeltaUpdateFile, DownloadDescriptor, HttpFile, load_props, progress, redmagic_probe_full_ota_url, verify_package
 
-DEVICE_MODELS = os.environ.get("DEVICE_MODELS", "NX769J,NX769S").split(",")
+DEVICE_MODELS = os.environ.get("DEVICE_MODELS", "")
+DEVICE_MODELS = DEVICE_MODELS.split(",") if DEVICE_MODELS != "" else ["NX769J", "NX769S"]
 IS_REDMAGIC = int(os.environ.get("IS_REDMAGIC", "1"))
 FILES_TO_EXTRACT = [
     "apex_info.pb",
