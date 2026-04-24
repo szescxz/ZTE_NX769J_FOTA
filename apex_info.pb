@@ -1,77 +1,77 @@
 
 
 com.android.apex.cts.shim(
-
-com.android.bt–σ«
-'
-com.android.crashrecovery–σ« €€
+
+com.android.bt–σ«(–σ«
+-
+com.android.crashrecovery–σ« €€(–σ«
 
 com.android.devicelock(
 
 com.android.i18n(
-&
-com.android.nfcservices–σ« €ΐÒ
+,
+com.android.nfcservices–σ« €ΐÒ(–σ«
 )
-com.android.profiling–σ« € ~(ορ§
+com.android.profiling–σ« € ~(–σ«
 
 com.android.runtime(
-%
-com.android.uprobestats–σ« €ΰp
++
+com.android.uprobestats–σ« €ΰp(–σ«
 
-com.android.virt(
+com.android.virt(
 %
-com.android.adbd°ατ« €€Η(Δ°¤§
+com.android.adbd°ατ« €€Η(°ατ«
 +
-com.android.adservicesΨατ« € ²(¤―¤§
+com.android.adservicesΨατ« € ²(Ψατ«
 *
-com.android.appsearch€βτ« € (Δ°¤§
+com.android.appsearch€βτ« € (€βτ«
 $
-com.android.art€βτ« €ΐ¨(ΰ΄¤§
+com.android.art€βτ« €ΐ¨(€βτ«
 .
-com.android.cellbroadcastγτ« € ­	(ό³¤§
+com.android.cellbroadcastγτ« € ­	(γτ«
 5
- com.android.configinfrastructure°ατ« €ΰ»(Δ°¤§
+ com.android.configinfrastructure°ατ« €ΰ»(°ατ«
 *
-com.android.conscrypt°ατ« € Δ(Δ°¤§
+com.android.conscrypt°ατ« € Δ(°ατ«
 ,
-com.android.extservices³ατ« €ΐ(Η°¤§
+com.android.extservices³ατ« €ΐ(³ατ«
 .
-com.android.healthfitness γτ« € Φ(Δ°¤§
+com.android.healthfitness γτ« € Φ( γτ«
 %
-com.android.ipsec°ατ« € =(Δ°¤§
+com.android.ipsec°ατ« € =(°ατ«
 .
-com.android.media.swcodecετ« €ΐ („½¤§
+com.android.media.swcodecετ« €ΐ (ετ«
 &
-com.android.media°ατ« €ΐύ(Δ°¤§
+com.android.media°ατ« €ΐύ(°ατ«
 .
-com.android.mediaproviderγτ« €ΰτ(Δ°¤§
+com.android.mediaproviderγτ« €ΰτ(γτ«
 /
-com.android.neuralnetworks°ατ« €ΰª(Δ°¤§
+com.android.neuralnetworks°ατ« €ΰª(°ατ«
 8
-#com.android.ondevicepersonalization°ατ« € π(¤―¤§
+#com.android.ondevicepersonalization°ατ« € π(°ατ«
 *
-com.android.os.statsd€βτ« €ΰΒ(¤―¤§
+com.android.os.statsd€βτ« €ΰΒ(€βτ«
 +
-com.android.permissionκτ« €ΐψ(Δ°¤§
+com.android.permissionκτ« €ΐψ(κτ«
 '
-com.android.resolv°ατ« €ΰΆ(Δ°¤§
+com.android.resolv°ατ« €ΰΆ(°ατ«
 $
-com.android.rkpd°ατ« €ΐ`(ορ§
+com.android.rkpd°ατ« €ΐ`(°ατ«
 *
-com.android.scheduling°ατ« €ΐ(Δ°¤§
+com.android.scheduling°ατ« €ΐ(°ατ«
 &
-com.android.sdkext°ατ« € 8(Δ°¤§
+com.android.sdkext°ατ« € 8(°ατ«
 *
 com.android.tetheringΔλτ« € •
-(Δ°¤§
+(Δλτ«
  
-com.android.tzdata°ατ«(¤―¤§
+com.android.tzdata°ατ«(°ατ«
 $
-com.android.uwbγτ« € ’(ορ§
+com.android.uwbγτ« € ’(γτ«
 %
-com.android.wifi”ητ« € (Δ°¤§
-
-com.android.compos
+com.android.wifi”ητ« € (”ητ«
+
+com.android.compos(
 
 com.android.vndk.v34(
 )
