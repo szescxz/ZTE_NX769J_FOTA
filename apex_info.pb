@@ -69,7 +69,7 @@ $
 
 com.android.virt(
 %
-com.android.wifiŸ–ó« €ÀÒ(Ÿ–ó«
+com.android.wifiŸ–ó« € Ó(Ÿ–ó«
 
 com.android.compos(
 
