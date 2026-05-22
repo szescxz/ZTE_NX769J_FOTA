@@ -1,19 +1,19 @@
 
 u
-odm2,0,413ro.odm.build.fingerprint"Knubia/NX769J-UN/NX769J:14/UKQ1.230917.001/20260520.053332:user/release-keys
+odm2,0,413ro.odm.build.fingerprint"Knubia/NX769J-UN/NX769J:14/UKQ1.230917.001/20260522.124137:user/release-keys
 “
 product
-2,0,808581ro.product.build.fingerprint"^nubia/NX769J-UN/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260520.051645:user/release-keys
+2,0,808581ro.product.build.fingerprint"^nubia/NX769J-UN/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260522.122406:user/release-keys
 ’
-system2,0,1417518ro.system.build.fingerprint"^nubia/NX769J-UN/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260520.051645:user/release-keys
+system2,0,1417519ro.system.build.fingerprint"^nubia/NX769J-UN/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260522.122406:user/release-keys
 )
 system_dlkm2,0,2931unknown"unknown
 ™
 
 system_ext
-2,0,306903ro.system_ext.build.fingerprint"^nubia/NX769J-UN/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260520.051645:user/release-keys
+2,0,306903ro.system_ext.build.fingerprint"^nubia/NX769J-UN/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260522.122406:user/release-keys
 ~
 vendor
-2,0,435615ro.vendor.build.fingerprint"Knubia/NX769J-UN/NX769J:14/UKQ1.230917.001/20260520.053332:user/release-keys
+2,0,435615ro.vendor.build.fingerprint"Knubia/NX769J-UN/NX769J:14/UKQ1.230917.001/20260522.124137:user/release-keys
 ‡
-vendor_dlkm	2,0,16264 ro.vendor_dlkm.build.fingerprint"Knubia/NX769J-UN/NX769J:14/UKQ1.230917.001/20260520.053332:user/release-keys
+vendor_dlkm	2,0,16234 ro.vendor_dlkm.build.fingerprint"Knubia/NX769J-UN/NX769J:14/UKQ1.230917.001/20260522.124137:user/release-keys
