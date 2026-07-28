@@ -10,13 +10,13 @@ ro.product.system.name=NX769J
 ro.system.product.cpu.abilist=arm64-v8a
 ro.system.product.cpu.abilist32=
 ro.system.product.cpu.abilist64=arm64-v8a
-ro.system.build.date=Tue May 19 10:32:06 CST 2026
-ro.system.build.date.utc=1779157926
-ro.system.build.fingerprint=nubia/NX769J/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260519.102422:user/release-keys
+ro.system.build.date=Tue Jul 28 08:59:11 CST 2026
+ro.system.build.date.utc=1785200351
+ro.system.build.fingerprint=nubia/NX769J/NX769J:16/BQ2A.250705.001-BP2A.250605.031.A3/20260728.085752:user/release-keys
 ro.system.build.id=BQ2A.250705.001-BP2A.250605.031.A3
 ro.system.build.tags=release-keys
 ro.system.build.type=user
-ro.system.build.version.incremental=20260519.102422
+ro.system.build.version.incremental=20260728.085752
 ro.system.build.version.release=16
 ro.system.build.version.release_or_codename=16
 ro.system.build.version.sdk=36
@@ -26,8 +26,8 @@ ro.system.build.version.sdk_full=36.0
 ####################################
 # begin build properties
 ro.build.id=BQ2A.250705.001-BP2A.250605.031.A3
-ro.build.display.id=RedMagicOS11.0.7
-ro.build.version.incremental=20260519.102422
+ro.build.display.id=RedMagicOS11.0.8MR4
+ro.build.version.incremental=20260728.085752
 ro.build.version.sdk=36
 ro.build.version.sdk_full=36.0
 ro.build.version.preview_sdk=0
@@ -38,14 +38,14 @@ ro.build.version.known_codenames=Base,Base11,Cupcake,Donut,Eclair,Eclair01,Eclai
 ro.build.version.release=16
 ro.build.version.release_or_codename=16
 ro.build.version.release_or_preview_display=16
-ro.build.version.security_patch=2026-05-01
+ro.build.version.security_patch=2026-06-01
 ro.build.version.base_os=
 ro.build.version.min_supported_target_sdk=28
-ro.build.date=Tue May 19 10:32:06 CST 2026
-ro.build.date.utc=1779157926
+ro.build.date=Tue Jul 28 08:59:11 CST 2026
+ro.build.date.utc=1785200351
 ro.build.type=user
 ro.build.user=zte
-ro.build.host=scl-sh-baremetal-14
+ro.build.host=scl-sh-baremetal-16
 ro.build.tags=release-keys
 ro.build.flavor=qssi_64-user
 # ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,
@@ -56,7 +56,7 @@ ro.wifi.channels=
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=qssi_64
 # Do not try to parse description or thumbprint
-ro.build.description=qssi_64-user 16 BQ2A.250705.001-BP2A.250605.031.A3 20260519.102422 release-keys
+ro.build.description=qssi_64-user 16 BQ2A.250705.001-BP2A.250605.031.A3 20260728.085752 release-keys
 # end build properties
 ####################################
 # from device/qcom/qssi_64/system.prop
@@ -314,8 +314,8 @@ ro.config.wallpaper=/system/etc/custom_config/app/Launcher/default_wallpaper.jpg
 ro.config.lock_wallpaper=/system/etc/custom_config/app/systemUI/default_lock_wallpaper.jpg
 ro.build.ab_update=true
 ro.build.MiFavor_version=NebulaOS2.0
-ro.build.display.id=RedMagicOS11.0.7
-ro.build.sw_internal_version=GEN_CN_NX769SV3.0.0B07
+ro.build.display.id=RedMagicOS11.0.8MR4
+ro.build.sw_internal_version=GEN_CN_NX769SV3.0.0B08MR4
 ro.product.vendor.brand=nubia
 ro.product.vendor.device=NX769J
 ro.product.vendor.manufacturer=nubia
